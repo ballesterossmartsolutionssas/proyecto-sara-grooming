@@ -1,0 +1,1379 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sara's Paws & Shine | Mobile Grooming Maryland</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Grooming canino profesional a domicilio en Maryland. Baño, corte, uñas, limpieza de oídos y más, con el toque especial de Sara." />
+
+  <!-- Fuente bonita -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #ff8c69;
+      --primary-dark: #e0704c;
+      --secondary: #4b9cd3;
+      --bg: #fff9f5;
+      --text: #333333;
+      --card-bg: #ffffff;
+      --shadow: 0 10px 25px rgba(0,0,0,0.08);
+      --radius: 18px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+      border-radius: 16px;
+      object-fit: cover;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Layout general */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255, 249, 245, 0.9);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 1px 10px rgba(0,0,0,0.05);
+    }
+
+    .nav {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0.8rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    .logo-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, #ffd9c9, #ff8c69);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 1.3rem;
+    }
+
+    .nav-center {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      flex: 1;
+      justify-content: center;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.2rem;
+      font-size: 0.95rem;
+      align-items: center;
+    }
+
+    .nav-links a {
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -3px;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: width 0.25s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.95rem;
+      box-shadow: 0 10px 20px rgba(255, 140, 105, 0.35);
+      transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.2s ease;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 14px 26px rgba(255, 140, 105, 0.4);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1px solid var(--primary);
+      color: var(--primary-dark);
+      padding: 0.55rem 1.2rem;
+      border-radius: 999px;
+      cursor: pointer;
+      font-weight: 500;
+      font-size: 0.9rem;
+      transition: background 0.2s ease, color 0.2s ease, transform 0.1s ease;
+    }
+
+    .btn-outline:hover {
+      background: var(--primary);
+      color: white;
+      transform: translateY(-1px);
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1.5rem;
+    }
+
+    section {
+      margin: 3rem 0;
+    }
+
+    /* Language switch */
+    .lang-switch {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.8rem;
+    }
+
+    .lang-btn {
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      font-size: 0.8rem;
+      padding: 0.2rem 0.4rem;
+      border-radius: 999px;
+      font-weight: 500;
+      color: #555;
+    }
+
+    .lang-btn.active {
+      background: var(--primary);
+      color: #fff;
+      box-shadow: 0 0 0 1px rgba(0,0,0,0.05);
+    }
+
+    /* Hero */
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #ffffff;
+      padding: 0.3rem 0.9rem;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      box-shadow: var(--shadow);
+      margin-bottom: 0.8rem;
+    }
+
+    .badge span {
+      font-size: 1rem;
+    }
+
+    .hero h1 {
+      font-size: 2.2rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .hero h1 span {
+      color: var(--primary);
+    }
+
+    .hero p {
+      font-size: 0.98rem;
+      max-width: 500px;
+      margin-bottom: 1.3rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-detail {
+      font-size: 0.85rem;
+      color: #666;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-detail strong {
+      color: var(--secondary);
+    }
+
+    .hero-image-wrapper {
+      position: relative;
+    }
+
+    .hero-main-card {
+      background: linear-gradient(135deg, #ffe1d4, #ffffff);
+      border-radius: 26px;
+      padding: 1rem;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-main-card img {
+      height: 260px;
+      width: 100%;
+    }
+
+    .hero-floating {
+      position: absolute;
+      bottom: -14px;
+      left: -16px;
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 0.7rem 0.9rem;
+      box-shadow: var(--shadow);
+      font-size: 0.78rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .hero-floating strong {
+      font-size: 0.9rem;
+    }
+
+    .hero-floating span {
+      font-size: 0.75rem;
+      color: #777;
+    }
+
+    .hero-floating .dog-icon {
+      font-size: 1.1rem;
+    }
+
+    .hero-floating.right {
+      left: auto;
+      right: -12px;
+      bottom: 36px;
+    }
+
+    /* Servicios */
+    .section-title {
+      font-size: 1.7rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .section-subtitle {
+      font-size: 0.95rem;
+      color: #666;
+      margin-bottom: 1.5rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.4rem;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 1.1rem;
+      box-shadow: var(--shadow);
+      font-size: 0.9rem;
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .icon-circle {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      background: #fff3ee;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+    }
+
+    .card h3 {
+      font-size: 1rem;
+    }
+
+    .tagline {
+      font-size: 0.8rem;
+      color: #888;
+      margin-bottom: 0.7rem;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    .card ul li::before {
+      content: "• ";
+      color: var(--primary);
+      font-weight: bold;
+    }
+
+    /* Antes / Después */
+    .before-after-grid {
+      display: grid;
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+      gap: 1.3rem;
+    }
+
+    .before-after-card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 0.7rem;
+      box-shadow: var(--shadow);
+      font-size: 0.85rem;
+    }
+
+    .before-after-tag {
+      display: inline-block;
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      font-size: 0.7rem;
+      margin-top: 0.35rem;
+    }
+
+    .before-tag {
+      background: #ffe5e0;
+      color: #c44428;
+    }
+
+    .after-tag {
+      background: #e0ffe5;
+      color: #258c47;
+    }
+
+    .before-after-images {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.4rem;
+      margin-bottom: 0.4rem;
+    }
+
+    /* Tarifas */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.2rem;
+    }
+
+    .pricing-card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 1.2rem;
+      box-shadow: var(--shadow);
+      text-align: center;
+      font-size: 0.9rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pricing-card.highlight {
+      border: 2px solid var(--primary);
+      transform: translateY(-4px);
+    }
+
+    .pricing-size {
+      font-weight: 600;
+      font-size: 1.1rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .pricing-price {
+      font-size: 1.7rem;
+      font-weight: 700;
+      margin-bottom: 0.2rem;
+    }
+
+    .pricing-price span {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: #777;
+    }
+
+    .pricing-note {
+      font-size: 0.75rem;
+      color: #777;
+      margin-bottom: 0.6rem;
+    }
+
+    .pricing-card ul {
+      text-align: left;
+      font-size: 0.85rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .pricing-ribbon {
+      position: absolute;
+      top: 12px;
+      right: -40px;
+      background: var(--secondary);
+      color: white;
+      padding: 0.2rem 1.5rem;
+      transform: rotate(20deg);
+      font-size: 0.7rem;
+      font-weight: 600;
+    }
+
+    /* Cita / Formulario */
+    .appointment-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 1.8rem;
+      align-items: flex-start;
+    }
+
+    form {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 1.2rem;
+      box-shadow: var(--shadow);
+      font-size: 0.88rem;
+    }
+
+    .form-group {
+      margin-bottom: 0.9rem;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.2rem;
+      font-weight: 500;
+      font-size: 0.86rem;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 0.5rem 0.6rem;
+      border-radius: 10px;
+      border: 1px solid #dddddd;
+      font-family: inherit;
+      font-size: 0.86rem;
+      outline: none;
+      transition: border 0.15s ease, box-shadow 0.15s ease;
+      background: #fdfdfd;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(255, 140, 105, 0.2);
+    }
+
+    textarea {
+      min-height: 90px;
+      resize: vertical;
+    }
+
+    .small-note {
+      font-size: 0.75rem;
+      color: #777;
+      margin-top: 0.3rem;
+    }
+
+    .appointment-info-card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 1rem;
+      box-shadow: var(--shadow);
+      font-size: 0.9rem;
+    }
+
+    .appointment-info-card h3 {
+      margin-bottom: 0.5rem;
+    }
+
+    .appointment-info-card p {
+      margin-bottom: 0.6rem;
+    }
+
+    .info-list {
+      list-style: none;
+      font-size: 0.85rem;
+    }
+
+    .info-list li {
+      margin-bottom: 0.3rem;
+    }
+
+    .info-list li span {
+      font-weight: 600;
+      color: var(--secondary);
+    }
+
+    /* Footer */
+    footer {
+      background: #1f1f1f;
+      color: #f1f1f1;
+      padding: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      font-size: 0.8rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-inner a {
+      color: #f1f1f1;
+      text-decoration: underline;
+      text-decoration-style: dotted;
+    }
+
+    /* Responsivo */
+    @media (max-width: 900px) {
+      .hero,
+      .grid,
+      .before-after-grid,
+      .pricing-grid,
+      .appointment-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        text-align: left;
+      }
+
+      .hero-main-card img {
+        height: 230px;
+      }
+
+      .nav-center {
+        justify-content: flex-end;
+      }
+
+      .nav-links {
+        display: none;
+      }
+    }
+
+    @media (max-width: 600px) {
+      main {
+        padding: 1.2rem;
+      }
+
+      .hero h1 {
+        font-size: 1.7rem;
+      }
+
+      .section-title {
+        font-size: 1.4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <nav class="nav">
+    <div class="logo">
+      <div class="logo-icon">🐾</div>
+      <div>
+        <div>Sara's Paws & Shine</div>
+        <small style="font-weight:400;font-size:0.7rem;color:#777;" data-i18n="nav.tagline">
+          Mobile Grooming · Maryland
+        </small>
+      </div>
+    </div>
+
+    <div class="nav-center">
+      <div class="nav-links">
+        <a href="#servicios" data-i18n="nav.services">Servicios</a>
+        <a href="#antes-despues" data-i18n="nav.beforeAfter">Antes & Después</a>
+        <a href="#tarifas" data-i18n="nav.pricing">Tarifas</a>
+        <a href="#agenda" data-i18n="nav.book">Agendar</a>
+      </div>
+
+      <div class="lang-switch">
+        <button class="lang-btn active" data-lang="es">ES</button>
+        <span>|</span>
+        <button class="lang-btn" data-lang="en">EN</button>
+      </div>
+    </div>
+
+    <button class="btn-outline" onclick="scrollToSection('agenda')" data-i18n="nav.cta">
+      Agendar cita
+    </button>
+  </nav>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <div>
+      <div class="badge" data-i18n="hero.badge">
+        <span>✨</span> Mobile grooming pensado con amor por Sara
+      </div>
+      <h1 data-i18n="hero.title">
+        Tu perrito limpio, feliz y <span>guapísimo</span>, sin salir de casa.
+      </h1>
+      <p data-i18n="hero.text">
+        Sara lleva más de un año cuidando, bañando y poniendo hermosos a los peluditos
+        en PetSmart. Ahora quiere llevar esa experiencia directamente a tu puerta
+        en Maryland, con un servicio de grooming móvil lleno de cariño y detalle.
+      </p>
+
+      <div class="hero-actions">
+        <button class="btn-primary" onclick="scrollToSection('agenda')" data-i18n="hero.btnBook">
+          Reservar cita
+        </button>
+        <button class="btn-outline" onclick="scrollToSection('antes-despues')" data-i18n="hero.btnSee">
+          Ver transformaciones 🐶
+        </button>
+      </div>
+
+      <div class="hero-detail">
+        <div data-i18n="hero.bullet1"><strong>•</strong> Baño, corte, uñas, limpieza de oídos y más</div>
+        <div data-i18n="hero.bullet2"><strong>•</strong> Ideal para perritos nerviosos o muy jóvenes</div>
+        <div data-i18n="hero.bullet3"><strong>•</strong> Atención 1 a 1, sin jaulas</div>
+      </div>
+    </div>
+
+    <div class="hero-image-wrapper">
+      <div class="hero-main-card">
+        <!-- FIJI FELIZ como foto principal -->
+        <img src="images/FIJI FELIZ.jpg" alt="Perrito feliz después de grooming con Sara">
+      </div>
+
+      <div class="hero-floating">
+        <div class="dog-icon">🐕</div>
+        <strong data-i18n="hero.counterTitle">+100 perritos atendidos</strong>
+        <span data-i18n="hero.counterText">Experiencia real en grooming profesional</span>
+      </div>
+
+      <div class="hero-floating right">
+        <strong data-i18n="hero.zoneTitle">Zona Maryland</strong>
+        <span data-i18n="hero.zoneText">Servicio móvil, ella llega en su carrito 🚗</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section id="servicios">
+    <h2 class="section-title" data-i18n="services.title">Servicios para tu mejor amigo</h2>
+    <p class="section-subtitle" data-i18n="services.subtitle">
+      Todo el cuidado de un grooming profesional, con el tiempo y paciencia
+      que tu perrito merece.
+    </p>
+
+    <div class="grid">
+      <div class="card">
+        <div class="card-header">
+          <div class="icon-circle">🧴</div>
+          <h3 data-i18n="services.card1.title">Baño completo</h3>
+        </div>
+        <div class="tagline" data-i18n="services.card1.tagline">Shampoo suave + acondicionador</div>
+        <ul>
+          <li data-i18n="services.card1.li1">Baño con agua templada</li>
+          <li data-i18n="services.card1.li2">Secado cuidadoso (sin calor excesivo)</li>
+          <li data-i18n="services.card1.li3">Limpieza de orejas</li>
+          <li data-i18n="services.card1.li4">Perfume suave para mascotas</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <div class="icon-circle">✂️</div>
+          <h3 data-i18n="services.card2.title">Corte y estilo</h3>
+        </div>
+        <div class="tagline" data-i18n="services.card2.tagline">Estilo PetSmart, pero ahora móvil</div>
+        <ul>
+          <li data-i18n="services.card2.li1">Cortes según raza o a gusto del dueño</li>
+          <li data-i18n="services.card2.li2">Recorte higiénico</li>
+          <li data-i18n="services.card2.li3">Perfilado de carita y patas</li>
+          <li data-i18n="services.card2.li4">Revisión rápida de piel y pelaje</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <div class="icon-circle">🐾</div>
+          <h3 data-i18n="services.card3.title">Uñas & extras</h3>
+        </div>
+        <div class="tagline" data-i18n="services.card3.tagline">Detalles que marcan la diferencia</div>
+        <ul>
+          <li data-i18n="services.card3.li1">Corte de uñas con cuidado</li>
+          <li data-i18n="services.card3.li2">Lima para bordes suaves</li>
+          <li data-i18n="services.card3.li3">Limpieza de oídos suave</li>
+          <li data-i18n="services.card3.li4">Peinado + moñitos o pañuelo (si el perrito lo permite)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ANTES / DESPUÉS -->
+  <section id="antes-despues">
+    <h2 class="section-title" data-i18n="beforeAfter.title">Antes & Después</h2>
+    <p class="section-subtitle" data-i18n="beforeAfter.subtitle">
+      Esta es una de las transformaciones reales de un peludito que Sara dejó precioso.
+      Más adelante podemos ir agregando muchas más foticos, amor 🧡.
+    </p>
+
+    <div class="before-after-grid">
+      <div class="before-after-card">
+        <div class="before-after-images">
+          <!-- FIJI SUCIO / FIJI FELIZ -->
+          <img src="images/FIJI SUCIO.jpg" alt="Antes - FIJI">
+          <img src="images/FIJI FELIZ.jpg" alt="Después - FIJI">
+        </div>
+        <div>
+          <span class="before-after-tag before-tag" data-i18n="beforeAfter.before">Antes</span>
+          <span class="before-after-tag after-tag" data-i18n="beforeAfter.after">Después</span>
+        </div>
+        <p data-i18n="beforeAfter.text">
+          Nuestro modelo FIJI: llegó despeinadito y se fue brillando,
+          súper feliz con su baño y arreglo completo hecho por ti. 🐶✨
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TARIFAS -->
+  <section id="tarifas">
+    <h2 class="section-title" data-i18n="pricing.title">Tarifas orientativas</h2>
+    <p class="section-subtitle" data-i18n="pricing.subtitle">
+      Precios aproximados para que los dueños se hagan una idea.  
+      Luego los podemos ajustar como tú quieras, amor, según raza, tamaño, nudos, etc.
+    </p>
+
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <div class="pricing-size" data-i18n="pricing.card1.size">Perros pequeños</div>
+        <div class="pricing-price">
+          <span data-i18n="pricing.card1.price">$60</span><span> USD</span>
+        </div>
+        <div class="pricing-note" data-i18n="pricing.card1.note">Hasta 20 lb (aprox.)</div>
+        <ul>
+          <li data-i18n="pricing.card1.li1">Baño completo</li>
+          <li data-i18n="pricing.card1.li2">Corte básico o solo arreglo de puntas</li>
+          <li data-i18n="pricing.card1.li3">Corte de uñas</li>
+          <li data-i18n="pricing.card1.li4">Limpieza de oídos</li>
+        </ul>
+        <button class="btn-outline" onclick="scrollToSection('agenda')" data-i18n="pricing.card1.btn">
+          Agendar pequeño
+        </button>
+      </div>
+
+      <div class="pricing-card highlight">
+        <div class="pricing-ribbon" data-i18n="pricing.ribbon">Más solicitado</div>
+        <div class="pricing-size" data-i18n="pricing.card2.size">Perros medianos</div>
+        <div class="pricing-price">
+          <span data-i18n="pricing.card2.price">$75</span><span> USD</span>
+        </div>
+        <div class="pricing-note" data-i18n="pricing.card2.note">Entre 20 y 50 lb (aprox.)</div>
+        <ul>
+          <li data-i18n="pricing.card2.li1">Baño completo</li>
+          <li data-i18n="pricing.card2.li2">Corte de raza o personalizado</li>
+          <li data-i18n="pricing.card2.li3">Corte de uñas + limado</li>
+          <li data-i18n="pricing.card2.li4">Limpieza de oídos</li>
+        </ul>
+        <button class="btn-primary" onclick="scrollToSection('agenda')" data-i18n="pricing.card2.btn">
+          Agendar mediano
+        </button>
+      </div>
+
+      <div class="pricing-card">
+        <div class="pricing-size" data-i18n="pricing.card3.size">Perros grandes</div>
+        <div class="pricing-price">
+          <span data-i18n="pricing.card3.price">$90</span><span> USD</span>
+        </div>
+        <div class="pricing-note" data-i18n="pricing.card3.note">MÁS DE 50 lb (aprox.)</div>
+        <ul>
+          <li data-i18n="pricing.card3.li1">Baño completo (tiempo extra)</li>
+          <li data-i18n="pricing.card3.li2">Corte o deslanado según necesidad</li>
+          <li data-i18n="pricing.card3.li3">Corte de uñas</li>
+          <li data-i18n="pricing.card3.li4">Limpieza de oídos</li>
+        </ul>
+        <button class="btn-outline" onclick="scrollToSection('agenda')" data-i18n="pricing.card3.btn">
+          Agendar grande
+        </button>
+      </div>
+    </div>
+
+    <p class="small-note" data-i18n="pricing.note">
+      * Extras como nudos muy fuertes, tratamiento especial de piel o
+      perritos extremadamente nerviosos pueden tener un costo adicional,
+      siempre explicado antes del servicio.
+    </p>
+  </section>
+
+  <!-- AGENDA -->
+  <section id="agenda">
+    <h2 class="section-title" data-i18n="booking.title">Agenda tu cita con Sara</h2>
+    <p class="section-subtitle" data-i18n="booking.subtitle">
+      Déjanos tus datos y la información de tu perrito.  
+      Este es un bosquejo que hice para ti; luego lo podemos conectar a WhatsApp,
+      correo o a una app, como tú quieras, amor.
+    </p>
+
+    <div class="appointment-layout">
+      <form onsubmit="return handleSubmit(event)">
+        <div class="form-group">
+          <label for="nombre" data-i18n="booking.form.name.label">Tu nombre</label>
+          <input type="text" id="nombre" name="nombre"
+                 data-i18n-placeholder="booking.form.name.placeholder"
+                 placeholder="Ej. Emily Johnson" required>
+        </div>
+
+        <div class="form-group">
+          <label for="telefono" data-i18n="booking.form.phone.label">Teléfono / WhatsApp</label>
+          <input type="tel" id="telefono" name="telefono"
+                 data-i18n-placeholder="booking.form.phone.placeholder"
+                 placeholder="Ej. +1 (555) 123 4567" required>
+        </div>
+
+        <div class="form-group">
+          <label for="email" data-i18n="booking.form.email.label">Correo electrónico</label>
+          <input type="email" id="email" name="email"
+                 data-i18n-placeholder="booking.form.email.placeholder"
+                 placeholder="Ej. emily@example.com" required>
+        </div>
+
+        <div class="form-group">
+          <label for="zona" data-i18n="booking.form.zone.label">Ciudad / zona en Maryland</label>
+          <input type="text" id="zona" name="zona"
+                 data-i18n-placeholder="booking.form.zone.placeholder"
+                 placeholder="Ej. Rockville, Silver Spring, etc." required>
+        </div>
+
+        <div class="form-group">
+          <label for="nombre-perro" data-i18n="booking.form.dogName.label">Nombre de tu perrito</label>
+          <input type="text" id="nombre-perro" name="nombre-perro"
+                 data-i18n-placeholder="booking.form.dogName.placeholder"
+                 placeholder="Ej. Max">
+        </div>
+
+        <div class="form-group">
+          <label for="tamano" data-i18n="booking.form.size.label">Tamaño del perrito</label>
+          <select id="tamano" name="tamano" required>
+            <option value="" data-i18n="booking.form.size.opt0">Selecciona una opción</option>
+            <option value="pequeno" data-i18n="booking.form.size.opt1">Pequeño (hasta 20 lb aprox.)</option>
+            <option value="mediano" data-i18n="booking.form.size.opt2">Mediano (20–50 lb aprox.)</option>
+            <option value="grande" data-i18n="booking.form.size.opt3">Grande (más de 50 lb)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="servicio" data-i18n="booking.form.service.label">Servicio deseado</label>
+          <select id="servicio" name="servicio" required>
+            <option value="" data-i18n="booking.form.service.opt0">Selecciona un servicio</option>
+            <option value="bano-corte" data-i18n="booking.form.service.opt1">Baño + corte completo</option>
+            <option value="solo-bano" data-i18n="booking.form.service.opt2">Solo baño</option>
+            <option value="uñas" data-i18n="booking.form.service.opt3">Corte de uñas</option>
+            <option value="paquete-completo" data-i18n="booking.form.service.opt4">Paquete completo (baño + corte + uñas + oídos)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="fecha" data-i18n="booking.form.date.label">Fecha ideal</label>
+          <input type="date" id="fecha" name="fecha" required>
+        </div>
+
+        <div class="form-group">
+          <label for="hora" data-i18n="booking.form.time.label">Franja horaria preferida</label>
+          <select id="hora" name="hora">
+            <option value="" data-i18n="booking.form.time.opt0">Cualquiera</option>
+            <option value="manana" data-i18n="booking.form.time.opt1">Mañana (9 am – 12 pm)</option>
+            <option value="tarde" data-i18n="booking.form.time.opt2">Tarde (1 pm – 4 pm)</option>
+            <option value="noche" data-i18n="booking.form.time.opt3">Final de la tarde (4 pm – 7 pm)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="detalles" data-i18n="booking.form.details.label">Cuéntale a Sara un poco de tu perrito</label>
+          <textarea id="detalles" name="detalles"
+                    data-i18n-placeholder="booking.form.details.placeholder"
+                    placeholder="Ej. Es nervioso con el secador, tiene alergias, etc."></textarea>
+        </div>
+
+        <button type="submit" class="btn-primary" data-i18n="booking.form.btn">
+          Enviar solicitud de cita
+        </button>
+
+        <p class="small-note" data-i18n="booking.note">
+          Por ahora este formulario es solo demostrativo, amor;  
+          luego lo podemos conectar a WhatsApp, correo o a una pequeña app
+          para gestionar las citas como tú quieras.
+        </p>
+      </form>
+
+      <div class="appointment-info-card">
+        <h3 data-i18n="info.title">¿Cómo funciona el servicio móvil?</h3>
+        <p data-i18n="info.text1">
+          Sara llega en su carrito hasta tu casa en Maryland con todo lo necesario
+          para dejar a tu perrito limpio y feliz. Ideal para:
+        </p>
+        <ul class="info-list">
+          <li data-i18n="info.li1"><span>•</span> Dueños sin tiempo para desplazarse.</li>
+          <li data-i18n="info.li2"><span>•</span> Perritos que se estresan en las tiendas.</li>
+          <li data-i18n="info.li3"><span>•</span> Peluditos mayores o muy jóvenes.</li>
+        </ul>
+
+        <p style="margin-top:0.8rem;" data-i18n="info.text2">
+          <strong>Horarios tentativos:</strong><br>
+          Lunes a viernes: 9:00 am – 6:00 pm<br>
+          Sábados: 10:00 am – 4:00 pm
+        </p>
+
+        <p style="margin-top:0.8rem;" data-i18n="info.text3">
+          <strong>Importante:</strong> siempre se confirmará la cita por mensaje
+          antes de considerarla agendada.
+        </p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div data-i18n="footer.left">
+      © <span id="year"></span> Sara's Paws & Shine · Mobile Grooming Maryland.
+      Todos los derechos reservados.
+    </div>
+    <div data-i18n="footer.right">
+      Hecho con muchísimo cariño para tu emprendimiento, Sara. 🧡
+    </div>
+  </div>
+</footer>
+
+<script>
+  const translations = {
+    es: {
+      "nav.tagline": "Mobile Grooming · Maryland",
+      "nav.services": "Servicios",
+      "nav.beforeAfter": "Antes & Después",
+      "nav.pricing": "Tarifas",
+      "nav.book": "Agendar",
+      "nav.cta": "Agendar cita",
+
+      "hero.badge": "✨ Mobile grooming pensado con amor por Sara",
+      "hero.title": "Tu perrito limpio, feliz y <span>guapísimo</span>, sin salir de casa.",
+      "hero.text":
+        "Sara lleva más de un año cuidando, bañando y poniendo hermosos a los peluditos en PetSmart. Ahora quiere llevar esa experiencia directamente a tu puerta en Maryland, con un servicio de grooming móvil lleno de cariño y detalle.",
+      "hero.btnBook": "Reservar cita",
+      "hero.btnSee": "Ver transformaciones 🐶",
+      "hero.bullet1": "<strong>•</strong> Baño, corte, uñas, limpieza de oídos y más",
+      "hero.bullet2": "<strong>•</strong> Ideal para perritos nerviosos o muy jóvenes",
+      "hero.bullet3": "<strong>•</strong> Atención 1 a 1, sin jaulas",
+      "hero.counterTitle": "+100 perritos atendidos",
+      "hero.counterText": "Experiencia real en grooming profesional",
+      "hero.zoneTitle": "Zona Maryland",
+      "hero.zoneText": "Servicio móvil, ella llega en su carrito 🚗",
+
+      "services.title": "Servicios para tu mejor amigo",
+      "services.subtitle":
+        "Todo el cuidado de un grooming profesional, con el tiempo y paciencia que tu perrito merece.",
+      "services.card1.title": "Baño completo",
+      "services.card1.tagline": "Shampoo suave + acondicionador",
+      "services.card1.li1": "Baño con agua templada",
+      "services.card1.li2": "Secado cuidadoso (sin calor excesivo)",
+      "services.card1.li3": "Limpieza de orejas",
+      "services.card1.li4": "Perfume suave para mascotas",
+
+      "services.card2.title": "Corte y estilo",
+      "services.card2.tagline": "Estilo PetSmart, pero ahora móvil",
+      "services.card2.li1": "Cortes según raza o a gusto del dueño",
+      "services.card2.li2": "Recorte higiénico",
+      "services.card2.li3": "Perfilado de carita y patas",
+      "services.card2.li4": "Revisión rápida de piel y pelaje",
+
+      "services.card3.title": "Uñas & extras",
+      "services.card3.tagline": "Detalles que marcan la diferencia",
+      "services.card3.li1": "Corte de uñas con cuidado",
+      "services.card3.li2": "Lima para bordes suaves",
+      "services.card3.li3": "Limpieza de oídos suave",
+      "services.card3.li4": "Peinado + moñitos o pañuelo (si el perrito lo permite)",
+
+      "beforeAfter.title": "Antes & Después",
+      "beforeAfter.subtitle":
+        "Esta es una de las transformaciones reales de un peludito que Sara dejó precioso. Más adelante podemos ir agregando muchas más foticos, amor 🧡.",
+      "beforeAfter.before": "Antes",
+      "beforeAfter.after": "Después",
+      "beforeAfter.text":
+        "Nuestro modelo FIJI: llegó despeinadito y se fue brillando, súper feliz con su baño y arreglo completo hecho por ti. 🐶✨",
+
+      "pricing.title": "Tarifas orientativas",
+      "pricing.subtitle":
+        "Precios aproximados para que los dueños se hagan una idea.  Luego los podemos ajustar como tú quieras, amor, según raza, tamaño, nudos, etc.",
+      "pricing.ribbon": "Más solicitado",
+      "pricing.card1.size": "Perros pequeños",
+      "pricing.card1.price": "$60",
+      "pricing.card1.note": "Hasta 20 lb (aprox.)",
+      "pricing.card1.li1": "Baño completo",
+      "pricing.card1.li2": "Corte básico o solo arreglo de puntas",
+      "pricing.card1.li3": "Corte de uñas",
+      "pricing.card1.li4": "Limpieza de oídos",
+      "pricing.card1.btn": "Agendar pequeño",
+
+      "pricing.card2.size": "Perros medianos",
+      "pricing.card2.price": "$75",
+      "pricing.card2.note": "Entre 20 y 50 lb (aprox.)",
+      "pricing.card2.li1": "Baño completo",
+      "pricing.card2.li2": "Corte de raza o personalizado",
+      "pricing.card2.li3": "Corte de uñas + limado",
+      "pricing.card2.li4": "Limpieza de oídos",
+      "pricing.card2.btn": "Agendar mediano",
+
+      "pricing.card3.size": "Perros grandes",
+      "pricing.card3.price": "$90",
+      "pricing.card3.note": "MÁS DE 50 lb (aprox.)",
+      "pricing.card3.li1": "Baño completo (tiempo extra)",
+      "pricing.card3.li2": "Corte o deslanado según necesidad",
+      "pricing.card3.li3": "Corte de uñas",
+      "pricing.card3.li4": "Limpieza de oídos",
+      "pricing.card3.btn": "Agendar grande",
+
+      "pricing.note":
+        "* Extras como nudos muy fuertes, tratamiento especial de piel o perritos extremadamente nerviosos pueden tener un costo adicional, siempre explicado antes del servicio.",
+
+      "booking.title": "Agenda tu cita con Sara",
+      "booking.subtitle":
+        "Déjanos tus datos y la información de tu perrito.  Este es un bosquejo que hice para ti; luego lo podemos conectar a WhatsApp, correo o a una app, como tú quieras, amor.",
+
+      "booking.form.name.label": "Tu nombre",
+      "booking.form.name.placeholder": "Ej. Emily Johnson",
+      "booking.form.phone.label": "Teléfono / WhatsApp",
+      "booking.form.phone.placeholder": "Ej. +1 (555) 123 4567",
+      "booking.form.email.label": "Correo electrónico",
+      "booking.form.email.placeholder": "Ej. emily@example.com",
+      "booking.form.zone.label": "Ciudad / zona en Maryland",
+      "booking.form.zone.placeholder": "Ej. Rockville, Silver Spring, etc.",
+      "booking.form.dogName.label": "Nombre de tu perrito",
+      "booking.form.dogName.placeholder": "Ej. Max",
+      "booking.form.size.label": "Tamaño del perrito",
+      "booking.form.size.opt0": "Selecciona una opción",
+      "booking.form.size.opt1": "Pequeño (hasta 20 lb aprox.)",
+      "booking.form.size.opt2": "Mediano (20–50 lb aprox.)",
+      "booking.form.size.opt3": "Grande (más de 50 lb)",
+
+      "booking.form.service.label": "Servicio deseado",
+      "booking.form.service.opt0": "Selecciona un servicio",
+      "booking.form.service.opt1": "Baño + corte completo",
+      "booking.form.service.opt2": "Solo baño",
+      "booking.form.service.opt3": "Corte de uñas",
+      "booking.form.service.opt4":
+        "Paquete completo (baño + corte + uñas + oídos)",
+
+      "booking.form.date.label": "Fecha ideal",
+      "booking.form.time.label": "Franja horaria preferida",
+      "booking.form.time.opt0": "Cualquiera",
+      "booking.form.time.opt1": "Mañana (9 am – 12 pm)",
+      "booking.form.time.opt2": "Tarde (1 pm – 4 pm)",
+      "booking.form.time.opt3": "Final de la tarde (4 pm – 7 pm)",
+
+      "booking.form.details.label": "Cuéntale a Sara un poco de tu perrito",
+      "booking.form.details.placeholder":
+        "Ej. Es nervioso con el secador, tiene alergias, etc.",
+      "booking.form.btn": "Enviar solicitud de cita",
+      "booking.note":
+        "Por ahora este formulario es solo demostrativo, amor;  luego lo podemos conectar a WhatsApp, correo o a una pequeña app para gestionar las citas como tú quieras.",
+
+      "info.title": "¿Cómo funciona el servicio móvil?",
+      "info.text1":
+        "Sara llega en su carrito hasta tu casa en Maryland con todo lo necesario para dejar a tu perrito limpio y feliz. Ideal para:",
+      "info.li1": "<span>•</span> Dueños sin tiempo para desplazarse.",
+      "info.li2": "<span>•</span> Perritos que se estresan en las tiendas.",
+      "info.li3": "<span>•</span> Peluditos mayores o muy jóvenes.",
+      "info.text2":
+        "<strong>Horarios tentativos:</strong><br> Lunes a viernes: 9:00 am – 6:00 pm<br> Sábados: 10:00 am – 4:00 pm",
+      "info.text3":
+        "<strong>Importante:</strong> siempre se confirmará la cita por mensaje antes de considerarla agendada.",
+
+      "footer.left":
+        "© <span id=\"year\"></span> Sara's Paws & Shine · Mobile Grooming Maryland. Todos los derechos reservados.",
+      "footer.right":
+        "Hecho con muchísimo cariño para tu emprendimiento, Sara. 🧡",
+
+      "alert.msg":
+        "¡Gracias, {name}! Tu solicitud de cita para {dog} ha sido enviada (demo).\n\nAmor, esto es solo una vista previa de cómo podría funcionar el sistema de agenda para tu emprendimiento. 💕"
+    },
+
+    en: {
+      "nav.tagline": "Mobile Grooming · Maryland",
+      "nav.services": "Services",
+      "nav.beforeAfter": "Before & After",
+      "nav.pricing": "Pricing",
+      "nav.book": "Book",
+      "nav.cta": "Book an appointment",
+
+      "hero.badge": "✨ Mobile grooming made with love by Sara",
+      "hero.title": "Your pup clean, happy and <span>glowing</span>, without leaving home.",
+      "hero.text":
+        "Sara has over a year of experience taking care of pups at PetSmart, bathing them and making them look amazing. Now she wants to bring that experience straight to your door in Maryland, with a mobile grooming service full of care and attention to detail.",
+      "hero.btnBook": "Book now",
+      "hero.btnSee": "See transformations 🐶",
+      "hero.bullet1": "<strong>•</strong> Bath, haircut, nails, ear cleaning and more",
+      "hero.bullet2": "<strong>•</strong> Perfect for nervous or very young pups",
+      "hero.bullet3": "<strong>•</strong> One-on-one attention, no cages",
+      "hero.counterTitle": "100+ pups pampered",
+      "hero.counterText": "Real professional grooming experience",
+      "hero.zoneTitle": "Maryland area",
+      "hero.zoneText": "Mobile service — she arrives in her car 🚗",
+
+      "services.title": "Services for your best friend",
+      "services.subtitle":
+        "All the care of professional grooming, with the time and patience your pup deserves.",
+      "services.card1.title": "Full bath",
+      "services.card1.tagline": "Gentle shampoo + conditioner",
+      "services.card1.li1": "Bath with warm water",
+      "services.card1.li2": "Careful drying (no excessive heat)",
+      "services.card1.li3": "Ear cleaning",
+      "services.card1.li4": "Soft pet-safe cologne",
+
+      "services.card2.title": "Haircut & style",
+      "services.card2.tagline": "That PetSmart touch, now mobile",
+      "services.card2.li1": "Breed-standard or custom cuts",
+      "services.card2.li2": "Hygienic trim",
+      "services.card2.li3": "Face and paw shaping",
+      "services.card2.li4": "Quick skin and coat check",
+
+      "services.card3.title": "Nails & extras",
+      "services.card3.tagline": "Little details that matter",
+      "services.card3.li1": "Careful nail trim",
+      "services.card3.li2": "Nail filing for smooth edges",
+      "services.card3.li3": "Gentle ear cleaning",
+      "services.card3.li4": "Brushing + bows or bandana (if your pup is okay with it)",
+
+      "beforeAfter.title": "Before & After",
+      "beforeAfter.subtitle":
+        "This is one of the real transformations of a little pup Sara made look gorgeous. Later on we can add many more pictures together. 🧡",
+      "beforeAfter.before": "Before",
+      "beforeAfter.after": "After",
+      "beforeAfter.text":
+        "Our model FIJI: he arrived all messy and left shining, super happy after his full bath and grooming done by you. 🐶✨",
+
+      "pricing.title": "Sample pricing",
+      "pricing.subtitle":
+        "Approximate prices so owners have an idea. Later we can adjust them together however you want, depending on breed, size, matting, etc.",
+      "pricing.ribbon": "Most popular",
+      "pricing.card1.size": "Small dogs",
+      "pricing.card1.price": "$60",
+      "pricing.card1.note": "Up to ~20 lb",
+      "pricing.card1.li1": "Full bath",
+      "pricing.card1.li2": "Basic trim or touch-up",
+      "pricing.card1.li3": "Nail trim",
+      "pricing.card1.li4": "Ear cleaning",
+      "pricing.card1.btn": "Book small dog",
+
+      "pricing.card2.size": "Medium dogs",
+      "pricing.card2.price": "$75",
+      "pricing.card2.note": "Around 20–50 lb",
+      "pricing.card2.li1": "Full bath",
+      "pricing.card2.li2": "Breed or custom cut",
+      "pricing.card2.li3": "Nail trim + filing",
+      "pricing.card2.li4": "Ear cleaning",
+      "pricing.card2.btn": "Book medium dog",
+
+      "pricing.card3.size": "Large dogs",
+      "pricing.card3.price": "$90",
+      "pricing.card3.note": "50+ lb (approx.)",
+      "pricing.card3.li1": "Full bath (extra time)",
+      "pricing.card3.li2": "Cut or deshedding as needed",
+      "pricing.card3.li3": "Nail trim",
+      "pricing.card3.li4": "Ear cleaning",
+      "pricing.card3.btn": "Book large dog",
+
+      "pricing.note":
+        "* Extra heavy matting, special skin treatments or extremely nervous pups may have an additional cost, always explained before the service.",
+
+      "booking.title": "Book your appointment with Sara",
+      "booking.subtitle":
+        "Leave us your details and your pup’s info. This is a little draft I made for you; later we can connect it to WhatsApp, email or a small app, however you like.",
+
+      "booking.form.name.label": "Your name",
+      "booking.form.name.placeholder": "e.g. Emily Johnson",
+      "booking.form.phone.label": "Phone / WhatsApp",
+      "booking.form.phone.placeholder": "e.g. +1 (555) 123 4567",
+      "booking.form.email.label": "Email",
+      "booking.form.email.placeholder": "e.g. emily@example.com",
+      "booking.form.zone.label": "City / area in Maryland",
+      "booking.form.zone.placeholder": "e.g. Rockville, Silver Spring, etc.",
+      "booking.form.dogName.label": "Your pup’s name",
+      "booking.form.dogName.placeholder": "e.g. Max",
+      "booking.form.size.label": "Dog size",
+      "booking.form.size.opt0": "Choose an option",
+      "booking.form.size.opt1": "Small (up to ~20 lb)",
+      "booking.form.size.opt2": "Medium (20–50 lb)",
+      "booking.form.size.opt3": "Large (50+ lb)",
+
+      "booking.form.service.label": "Service",
+      "booking.form.service.opt0": "Choose a service",
+      "booking.form.service.opt1": "Bath + full haircut",
+      "booking.form.service.opt2": "Bath only",
+      "booking.form.service.opt3": "Nail trim",
+      "booking.form.service.opt4":
+        "Full package (bath + haircut + nails + ears)",
+
+      "booking.form.date.label": "Preferred date",
+      "booking.form.time.label": "Preferred time of day",
+      "booking.form.time.opt0": "Any time",
+      "booking.form.time.opt1": "Morning (9 am – 12 pm)",
+      "booking.form.time.opt2": "Afternoon (1 pm – 4 pm)",
+      "booking.form.time.opt3": "Late afternoon (4 pm – 7 pm)",
+
+      "booking.form.details.label": "Tell Sara a bit about your pup",
+      "booking.form.details.placeholder":
+        "e.g. Nervous with the dryer, has allergies, etc.",
+      "booking.form.btn": "Send booking request",
+      "booking.note":
+        "For now this form is just a demo; later we can connect it to WhatsApp, email or a small app to manage appointments together.",
+
+      "info.title": "How does the mobile service work?",
+      "info.text1":
+        "Sara drives to your home in Maryland with everything she needs to leave your pup clean and happy. It’s perfect for:",
+      "info.li1": "<span>•</span> Owners with no time to drive to a shop.",
+      "info.li2": "<span>•</span> Pups that get stressed in busy stores.",
+      "info.li3": "<span>•</span> Senior dogs or very young pups.",
+      "info.text2":
+        "<strong>Sample hours:</strong><br> Monday–Friday: 9:00 am – 6:00 pm<br> Saturday: 10:00 am – 4:00 pm",
+      "info.text3":
+        "<strong>Important:</strong> every appointment will always be confirmed by message before it’s considered booked.",
+
+      "footer.left":
+        "© <span id=\"year\"></span> Sara's Paws & Shine · Mobile Grooming Maryland. All rights reserved.",
+      "footer.right":
+        "Made with lots of love for your business, Sara. 🧡",
+
+      "alert.msg":
+        "Thank you, {name}! Your booking request for {dog} has been sent (demo).\n\nThis is just a preview of how your booking system could work. 💕"
+    }
+  };
+
+  let currentLang = "es";
+
+  function setLanguage(lang) {
+    currentLang = lang;
+
+    // Text / HTML translations
+    document.querySelectorAll("[data-i18n]").forEach((el) => {
+      const key = el.getAttribute("data-i18n");
+      const t = translations[lang][key];
+      if (t) {
+        el.innerHTML = t;
+      }
+    });
+
+    // Placeholders
+    document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
+      const key = el.getAttribute("data-i18n-placeholder");
+      const t = translations[lang][key];
+      if (t) {
+        el.setAttribute("placeholder", t);
+      }
+    });
+
+    // Año en footer (se vuelve a poner porque cambiamos innerHTML)
+    const yearSpan = document.getElementById("year");
+    if (yearSpan) {
+      yearSpan.textContent = new Date().getFullYear();
+    }
+
+    // Activar botoncitos de idioma
+    document.querySelectorAll(".lang-btn").forEach((btn) => {
+      btn.classList.toggle("active", btn.getAttribute("data-lang") === lang);
+    });
+  }
+
+  // Año actual en el footer al cargar
+  document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Click en los botones de idioma
+    document.querySelectorAll(".lang-btn").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const lang = btn.getAttribute("data-lang");
+        setLanguage(lang);
+      });
+    });
+
+    // Iniciar en español
+    setLanguage("es");
+  });
+
+  // Scroll suave a secciones
+  function scrollToSection(id) {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    }
+  }
+
+  // Manejo básico del formulario (demo)
+  function handleSubmit(event) {
+    event.preventDefault();
+    const nombre = document.getElementById("nombre").value || (currentLang === "es" ? "🙂" : "🙂");
+    const perro = document.getElementById("nombre-perro").value || (currentLang === "es" ? "tu perrito" : "your pup");
+
+    const template = translations[currentLang]["alert.msg"];
+    const msg = template
+      .replace("{name}", nombre)
+      .replace("{dog}", perro);
+
+    alert(msg);
+    event.target.reset();
+    return false;
+  }
+</script>
+
+</body>
+</html>
