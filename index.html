@@ -21,6 +21,7 @@
       --card-bg: #ffffff;
       --shadow: 0 10px 25px rgba(0,0,0,0.08);
       --radius: 18px;
+      --whatsapp: #25D366;
     }
 
     * {
@@ -157,6 +158,32 @@
       background: var(--primary);
       color: white;
       transform: translateY(-1px);
+    }
+
+    .btn-whatsapp {
+      background: var(--whatsapp);
+      color: white;
+      padding: 0.55rem 1.1rem;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      box-shadow: 0 10px 20px rgba(37, 211, 102, 0.4);
+      transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.2s ease;
+    }
+
+    .btn-whatsapp:hover {
+      background: #1ebe5c;
+      transform: translateY(-1px);
+      box-shadow: 0 14px 26px rgba(37, 211, 102, 0.5);
+    }
+
+    .btn-whatsapp span {
+      font-size: 1.1rem;
     }
 
     main {
@@ -301,7 +328,7 @@
       bottom: 36px;
     }
 
-    /* Servicios */
+    /* Secciones generales */
     .section-title {
       font-size: 1.7rem;
       margin-bottom: 0.4rem;
@@ -403,6 +430,60 @@
       grid-template-columns: 1fr 1fr;
       gap: 0.4rem;
       margin-bottom: 0.4rem;
+    }
+
+    /* Sobre Sara */
+    .about-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 1.8rem;
+      align-items: center;
+    }
+
+    .about-text p {
+      font-size: 0.92rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .about-highlight {
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 0.9rem 1rem;
+      box-shadow: var(--shadow);
+      font-size: 0.85rem;
+      border-left: 4px solid var(--primary);
+    }
+
+    /* Testimonios */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.3rem;
+    }
+
+    .testimonial-card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 1rem;
+      box-shadow: var(--shadow);
+      font-size: 0.86rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .testimonial-text {
+      font-style: italic;
+    }
+
+    .testimonial-name {
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .testimonial-pet {
+      font-size: 0.8rem;
+      color: #777;
     }
 
     /* Tarifas */
@@ -580,13 +661,56 @@
       text-decoration-style: dotted;
     }
 
+    /* WhatsApp flotante */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 1.6rem;
+      right: 1.6rem;
+      background: var(--whatsapp);
+      color: #fff;
+      border-radius: 999px;
+      padding: 0.7rem 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+      cursor: pointer;
+      font-size: 0.9rem;
+      z-index: 60;
+    }
+
+    .whatsapp-float span {
+      font-size: 1.3rem;
+    }
+
+    /* Barra móvil inferior */
+    .mobile-bar {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: #ffffff;
+      border-top: 1px solid #e5e5e5;
+      padding: 0.5rem 1rem;
+      display: none;
+      justify-content: center;
+      z-index: 55;
+    }
+
+    .mobile-bar button {
+      width: 100%;
+      max-width: 420px;
+    }
+
     /* Responsivo */
     @media (max-width: 900px) {
       .hero,
       .grid,
       .before-after-grid,
       .pricing-grid,
-      .appointment-layout {
+      .appointment-layout,
+      .about-layout,
+      .testimonials-grid {
         grid-template-columns: 1fr;
       }
 
@@ -604,6 +728,15 @@
 
       .nav-links {
         display: none;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .mobile-bar {
+        display: flex;
+      }
+      .whatsapp-float {
+        bottom: 4.2rem;
       }
     }
 
@@ -640,6 +773,7 @@
       <div class="nav-links">
         <a href="#servicios" data-i18n="nav.services">Servicios</a>
         <a href="#antes-despues" data-i18n="nav.beforeAfter">Antes & Después</a>
+        <a href="#sobre-sara" data-i18n="nav.about">Sobre Sara</a>
         <a href="#tarifas" data-i18n="nav.pricing">Tarifas</a>
         <a href="#agenda" data-i18n="nav.book">Agendar</a>
       </div>
@@ -651,8 +785,8 @@
       </div>
     </div>
 
-    <button class="btn-outline" onclick="scrollToSection('agenda')" data-i18n="nav.cta">
-      Agendar cita
+    <button class="btn-whatsapp" onclick="openWhatsApp()" data-i18n="nav.cta">
+      <span>💬</span> WhatsApp
     </button>
   </nav>
 </header>
@@ -674,8 +808,8 @@
       </p>
 
       <div class="hero-actions">
-        <button class="btn-primary" onclick="scrollToSection('agenda')" data-i18n="hero.btnBook">
-          Reservar cita
+        <button class="btn-whatsapp" onclick="openWhatsApp()" data-i18n="hero.btnBook">
+          <span>💬</span> Reservar por WhatsApp
         </button>
         <button class="btn-outline" onclick="scrollToSection('antes-despues')" data-i18n="hero.btnSee">
           Ver transformaciones 🐶
@@ -788,6 +922,83 @@
     </div>
   </section>
 
+  <!-- SOBRE SARA -->
+  <section id="sobre-sara">
+    <h2 class="section-title" data-i18n="about.title">Sobre Sara</h2>
+    <p class="section-subtitle" data-i18n="about.subtitle">
+      Detrás de cada perrito feliz hay una groomer que lo hace todo con amor, paciencia y mucho detalle.
+    </p>
+
+    <div class="about-layout">
+      <div class="about-text">
+        <p data-i18n="about.p1">
+          Sara lleva más de un año trabajando como groomer en PetSmart, donde ha bañado, cortado y consentido a
+          muchos perritos de todo tipo de razas y personalidades. Esa experiencia le ha dado un ojo clínico para
+          notar detalles en el pelaje, la piel y el carácter de cada peludito.
+        </p>
+        <p data-i18n="about.p2">
+          Más allá de la técnica, lo que la caracteriza es la paciencia: se toma el tiempo para ganar la confianza
+          de cada perrito, especialmente de los que llegan nerviosos o asustados. Su idea con este proyecto es
+          poder ofrecer un servicio más cercano y humano, donde cada peludo sea atendido con calma, sin jaulas y
+          sin prisa.
+        </p>
+        <p data-i18n="about.p3">
+          Esta página es solo el inicio de ese sueño. Más adelante podemos ir ajustando, cambiando y creciendo el
+          proyecto juntos, paso a paso, para que cada vez más familias en Maryland conozcan el talento y el cariño
+          con el que Sara cuida a sus perritos.
+        </p>
+
+        <div class="about-highlight" data-i18n="about.highlight">
+          Este emprendimiento está pensado para que puedas usar todo lo que ya sabes, pero a tu ritmo, con tus
+          tiempos y tus reglas. Yo estoy aquí para apoyarte en cada paso. 🧡
+        </div>
+      </div>
+
+      <div class="hero-main-card">
+        <!-- Puedes cambiar esta imagen luego por una de Sara con un perrito -->
+        <img src="images/FIJI FELIZ.jpg" alt="Perrito feliz después de grooming con Sara">
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIOS -->
+  <section id="testimonios">
+    <h2 class="section-title" data-i18n="testimonials.title">Clientes felices</h2>
+    <p class="section-subtitle" data-i18n="testimonials.subtitle">
+      Estos son algunos mensajes que podrían representar lo que sienten los dueños cuando ven a sus peluditos
+      después de pasar por tus manos. Más adelante podemos ir poniendo testimonios reales.
+    </p>
+
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="testimonial-text" data-i18n="testimonials.t1.text">
+          “Mi perrito siempre salía muy estresado de otros lugares, pero contigo volvió tranquilo, oliendo rico
+          y con el corte perfecto. Se nota que lo trataste con mucho cariño.”
+        </div>
+        <div class="testimonial-name" data-i18n="testimonials.t1.name">Laura M.</div>
+        <div class="testimonial-pet" data-i18n="testimonials.t1.pet">Humana de Toby</div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-text" data-i18n="testimonials.t2.text">
+          “Nos encantó que vinieras hasta nuestra casa, fue súper cómodo para nosotros y para nuestra perrita.
+          El corte quedó hermoso y el lazo en la cabeza fue el toque final.”
+        </div>
+        <div class="testimonial-name" data-i18n="testimonials.t2.name">Emily J.</div>
+        <div class="testimonial-pet" data-i18n="testimonials.t2.pet">Humana de Bella</div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-text" data-i18n="testimonials.t3.text">
+          “Gracias por tu paciencia con Rocky, que es un poco intenso. Verlo limpio, peinado y feliz no tiene
+          precio. Definitivamente seguiremos agendando contigo.”
+        </div>
+        <div class="testimonial-name" data-i18n="testimonials.t3.name">Carlos R.</div>
+        <div class="testimonial-pet" data-i18n="testimonials.t3.pet">Humano de Rocky</div>
+      </div>
+    </div>
+  </section>
+
   <!-- TARIFAS -->
   <section id="tarifas">
     <h2 class="section-title" data-i18n="pricing.title">Tarifas orientativas</h2>
@@ -809,8 +1020,8 @@
           <li data-i18n="pricing.card1.li3">Corte de uñas</li>
           <li data-i18n="pricing.card1.li4">Limpieza de oídos</li>
         </ul>
-        <button class="btn-outline" onclick="scrollToSection('agenda')" data-i18n="pricing.card1.btn">
-          Agendar pequeño
+        <button class="btn-whatsapp" onclick="openWhatsApp()" data-i18n="pricing.card1.btn">
+          <span>💬</span> Agendar pequeño
         </button>
       </div>
 
@@ -827,8 +1038,8 @@
           <li data-i18n="pricing.card2.li3">Corte de uñas + limado</li>
           <li data-i18n="pricing.card2.li4">Limpieza de oídos</li>
         </ul>
-        <button class="btn-primary" onclick="scrollToSection('agenda')" data-i18n="pricing.card2.btn">
-          Agendar mediano
+        <button class="btn-whatsapp" onclick="openWhatsApp()" data-i18n="pricing.card2.btn">
+          <span>💬</span> Agendar mediano
         </button>
       </div>
 
@@ -844,8 +1055,8 @@
           <li data-i18n="pricing.card3.li3">Corte de uñas</li>
           <li data-i18n="pricing.card3.li4">Limpieza de oídos</li>
         </ul>
-        <button class="btn-outline" onclick="scrollToSection('agenda')" data-i18n="pricing.card3.btn">
-          Agendar grande
+        <button class="btn-whatsapp" onclick="openWhatsApp()" data-i18n="pricing.card3.btn">
+          <span>💬</span> Agendar grande
         </button>
       </div>
     </div>
@@ -947,7 +1158,7 @@
         </div>
 
         <button type="submit" class="btn-primary" data-i18n="booking.form.btn">
-          Enviar solicitud de cita
+          Enviar solicitud de cita (demo)
         </button>
 
         <p class="small-note" data-i18n="booking.note">
@@ -996,6 +1207,19 @@
   </div>
 </footer>
 
+<!-- Botón flotante WhatsApp -->
+<div class="whatsapp-float" onclick="openWhatsApp()" aria-label="Contactar por WhatsApp">
+  <span>💬</span>
+  <span data-i18n="float.whatsapp">WhatsApp</span>
+</div>
+
+<!-- Barra móvil inferior -->
+<div class="mobile-bar">
+  <button class="btn-whatsapp" onclick="openWhatsApp()" data-i18n="mobile.whatsapp">
+    <span>💬</span> Agendar por WhatsApp
+  </button>
+</div>
+
 <script>
   const translations = {
     es: {
@@ -1004,13 +1228,14 @@
       "nav.beforeAfter": "Antes & Después",
       "nav.pricing": "Tarifas",
       "nav.book": "Agendar",
-      "nav.cta": "Agendar cita",
+      "nav.about": "Sobre Sara",
+      "nav.cta": "<span>💬</span> WhatsApp",
 
       "hero.badge": "✨ Mobile grooming pensado con amor por Sara",
       "hero.title": "Tu perrito limpio, feliz y <span>guapísimo</span>, sin salir de casa.",
       "hero.text":
         "Sara lleva más de un año cuidando, bañando y poniendo hermosos a los peluditos en PetSmart. Ahora quiere llevar esa experiencia directamente a tu puerta en Maryland, con un servicio de grooming móvil lleno de cariño y detalle.",
-      "hero.btnBook": "Reservar cita",
+      "hero.btnBook": "<span>💬</span> Reservar por WhatsApp",
       "hero.btnSee": "Ver transformaciones 🐶",
       "hero.bullet1": "<strong>•</strong> Baño, corte, uñas, limpieza de oídos y más",
       "hero.bullet2": "<strong>•</strong> Ideal para perritos nerviosos o muy jóvenes",
@@ -1052,6 +1277,34 @@
       "beforeAfter.text":
         "Nuestro modelo FIJI: llegó despeinadito y se fue brillando, súper feliz con su baño y arreglo completo hecho por ti. 🐶✨",
 
+      "about.title": "Sobre Sara",
+      "about.subtitle":
+        "Detrás de cada perrito feliz hay una groomer que lo hace todo con amor, paciencia y mucho detalle.",
+      "about.p1":
+        "Sara lleva más de un año trabajando como groomer en PetSmart, donde ha bañado, cortado y consentido a muchos perritos de todo tipo de razas y personalidades. Esa experiencia le ha dado un ojo clínico para notar detalles en el pelaje, la piel y el carácter de cada peludito.",
+      "about.p2":
+        "Más allá de la técnica, lo que la caracteriza es la paciencia: se toma el tiempo para ganar la confianza de cada perrito, especialmente de los que llegan nerviosos o asustados. Su idea con este proyecto es poder ofrecer un servicio más cercano y humano, donde cada peludo sea atendido con calma, sin jaulas y sin prisa.",
+      "about.p3":
+        "Esta página es solo el inicio de ese sueño. Más adelante podemos ir ajustando, cambiando y creciendo el proyecto juntos, paso a paso, para que cada vez más familias en Maryland conozcan el talento y el cariño con el que Sara cuida a sus perritos.",
+      "about.highlight":
+        "Este emprendimiento está pensado para que puedas usar todo lo que ya sabes, pero a tu ritmo, con tus tiempos y tus reglas. Yo estoy aquí para apoyarte en cada paso. 🧡",
+
+      "testimonials.title": "Clientes felices",
+      "testimonials.subtitle":
+        "Estos son algunos mensajes que podrían representar lo que sienten los dueños cuando ven a sus peluditos después de pasar por tus manos. Más adelante podemos ir poniendo testimonios reales.",
+      "testimonials.t1.text":
+        "“Mi perrito siempre salía muy estresado de otros lugares, pero contigo volvió tranquilo, oliendo rico y con el corte perfecto. Se nota que lo trataste con mucho cariño.”",
+      "testimonials.t1.name": "Laura M.",
+      "testimonials.t1.pet": "Humana de Toby",
+      "testimonials.t2.text":
+        "“Nos encantó que vinieras hasta nuestra casa, fue súper cómodo para nosotros y para nuestra perrita. El corte quedó hermoso y el lazo en la cabeza fue el toque final.”",
+      "testimonials.t2.name": "Emily J.",
+      "testimonials.t2.pet": "Humana de Bella",
+      "testimonials.t3.text":
+        "“Gracias por tu paciencia con Rocky, que es un poco intenso. Verlo limpio, peinado y feliz no tiene precio. Definitivamente seguiremos agendando contigo.”",
+      "testimonials.t3.name": "Carlos R.",
+      "testimonials.t3.pet": "Humano de Rocky",
+
       "pricing.title": "Tarifas orientativas",
       "pricing.subtitle":
         "Precios aproximados para que los dueños se hagan una idea.  Luego los podemos ajustar como tú quieras, amor, según raza, tamaño, nudos, etc.",
@@ -1063,7 +1316,7 @@
       "pricing.card1.li2": "Corte básico o solo arreglo de puntas",
       "pricing.card1.li3": "Corte de uñas",
       "pricing.card1.li4": "Limpieza de oídos",
-      "pricing.card1.btn": "Agendar pequeño",
+      "pricing.card1.btn": "<span>💬</span> Agendar pequeño",
 
       "pricing.card2.size": "Perros medianos",
       "pricing.card2.price": "$75",
@@ -1072,7 +1325,7 @@
       "pricing.card2.li2": "Corte de raza o personalizado",
       "pricing.card2.li3": "Corte de uñas + limado",
       "pricing.card2.li4": "Limpieza de oídos",
-      "pricing.card2.btn": "Agendar mediano",
+      "pricing.card2.btn": "<span>💬</span> Agendar mediano",
 
       "pricing.card3.size": "Perros grandes",
       "pricing.card3.price": "$90",
@@ -1081,7 +1334,7 @@
       "pricing.card3.li2": "Corte o deslanado según necesidad",
       "pricing.card3.li3": "Corte de uñas",
       "pricing.card3.li4": "Limpieza de oídos",
-      "pricing.card3.btn": "Agendar grande",
+      "pricing.card3.btn": "<span>💬</span> Agendar grande",
 
       "pricing.note":
         "* Extras como nudos muy fuertes, tratamiento especial de piel o perritos extremadamente nerviosos pueden tener un costo adicional, siempre explicado antes del servicio.",
@@ -1124,7 +1377,7 @@
       "booking.form.details.label": "Cuéntale a Sara un poco de tu perrito",
       "booking.form.details.placeholder":
         "Ej. Es nervioso con el secador, tiene alergias, etc.",
-      "booking.form.btn": "Enviar solicitud de cita",
+      "booking.form.btn": "Enviar solicitud de cita (demo)",
       "booking.note":
         "Por ahora este formulario es solo demostrativo, amor;  luego lo podemos conectar a WhatsApp, correo o a una pequeña app para gestionar las citas como tú quieras.",
 
@@ -1144,6 +1397,9 @@
       "footer.right":
         "Hecho con muchísimo cariño para tu emprendimiento, Sara. 🧡",
 
+      "float.whatsapp": "WhatsApp",
+      "mobile.whatsapp": "<span>💬</span> Agendar por WhatsApp",
+
       "alert.msg":
         "¡Gracias, {name}! Tu solicitud de cita para {dog} ha sido enviada (demo).\n\nAmor, esto es solo una vista previa de cómo podría funcionar el sistema de agenda para tu emprendimiento. 💕"
     },
@@ -1154,13 +1410,14 @@
       "nav.beforeAfter": "Before & After",
       "nav.pricing": "Pricing",
       "nav.book": "Book",
-      "nav.cta": "Book an appointment",
+      "nav.about": "About Sara",
+      "nav.cta": "<span>💬</span> WhatsApp",
 
       "hero.badge": "✨ Mobile grooming made with love by Sara",
       "hero.title": "Your pup clean, happy and <span>glowing</span>, without leaving home.",
       "hero.text":
         "Sara has over a year of experience taking care of pups at PetSmart, bathing them and making them look amazing. Now she wants to bring that experience straight to your door in Maryland, with a mobile grooming service full of care and attention to detail.",
-      "hero.btnBook": "Book now",
+      "hero.btnBook": "<span>💬</span> Book on WhatsApp",
       "hero.btnSee": "See transformations 🐶",
       "hero.bullet1": "<strong>•</strong> Bath, haircut, nails, ear cleaning and more",
       "hero.bullet2": "<strong>•</strong> Perfect for nervous or very young pups",
@@ -1192,7 +1449,8 @@
       "services.card3.li1": "Careful nail trim",
       "services.card3.li2": "Nail filing for smooth edges",
       "services.card3.li3": "Gentle ear cleaning",
-      "services.card3.li4": "Brushing + bows or bandana (if your pup is okay with it)",
+      "services.card3.li4":
+        "Brushing + bows or bandana (if your pup is okay with it)",
 
       "beforeAfter.title": "Before & After",
       "beforeAfter.subtitle":
@@ -1201,6 +1459,34 @@
       "beforeAfter.after": "After",
       "beforeAfter.text":
         "Our model FIJI: he arrived all messy and left shining, super happy after his full bath and grooming done by you. 🐶✨",
+
+      "about.title": "About Sara",
+      "about.subtitle":
+        "Behind every happy pup there’s a groomer who does everything with love, patience and lots of detail.",
+      "about.p1":
+        "Sara has been working as a groomer at PetSmart for over a year, bathing, trimming and pampering all kinds of dogs with different breeds and personalities. That experience has given her a sharp eye to notice details in each pup’s coat, skin and temperament.",
+      "about.p2":
+        "Beyond technique, what makes her special is her patience: she takes the time to earn each pup’s trust, especially those who arrive nervous or scared. With this project, her idea is to offer a more personal and calm service, where every pup is treated in a relaxed way, with no cages and no rush.",
+      "about.p3":
+        "This website is just the beginning of that dream. Later on we can keep adjusting, changing and growing the project together, step by step, so more families in Maryland can discover the talent and love with which Sara cares for their pups.",
+      "about.highlight":
+        "This little business is meant so you can use everything you already know, but at your own pace, with your own schedule and your own rules. I’m here to support you every step of the way. 🧡",
+
+      "testimonials.title": "Happy clients",
+      "testimonials.subtitle":
+        "These are a few sample messages that represent what owners might feel when they see their pups after being in your hands. Later on we can add real testimonials.",
+      "testimonials.t1.text":
+        "“My dog always came back very stressed from other places, but with you he returned calm, smelling great and with the perfect cut. You can tell you treated him with a lot of love.”",
+      "testimonials.t1.name": "Laura M.",
+      "testimonials.t1.pet": "Toby’s human",
+      "testimonials.t2.text":
+        "“We loved that you came to our home, it was super convenient for us and for our pup. Her haircut looked beautiful and the little bow on her head was the perfect touch.”",
+      "testimonials.t2.name": "Emily J.",
+      "testimonials.t2.pet": "Bella’s human",
+      "testimonials.t3.text":
+        "“Thank you for your patience with Rocky, he can be a bit intense. Seeing him clean, brushed and happy is priceless. We’ll definitely keep booking with you.”",
+      "testimonials.t3.name": "Carlos R.",
+      "testimonials.t3.pet": "Rocky’s human",
 
       "pricing.title": "Sample pricing",
       "pricing.subtitle":
@@ -1213,7 +1499,7 @@
       "pricing.card1.li2": "Basic trim or touch-up",
       "pricing.card1.li3": "Nail trim",
       "pricing.card1.li4": "Ear cleaning",
-      "pricing.card1.btn": "Book small dog",
+      "pricing.card1.btn": "<span>💬</span> Book small dog",
 
       "pricing.card2.size": "Medium dogs",
       "pricing.card2.price": "$75",
@@ -1222,7 +1508,7 @@
       "pricing.card2.li2": "Breed or custom cut",
       "pricing.card2.li3": "Nail trim + filing",
       "pricing.card2.li4": "Ear cleaning",
-      "pricing.card2.btn": "Book medium dog",
+      "pricing.card2.btn": "<span>💬</span> Book medium dog",
 
       "pricing.card3.size": "Large dogs",
       "pricing.card3.price": "$90",
@@ -1231,7 +1517,7 @@
       "pricing.card3.li2": "Cut or deshedding as needed",
       "pricing.card3.li3": "Nail trim",
       "pricing.card3.li4": "Ear cleaning",
-      "pricing.card3.btn": "Book large dog",
+      "pricing.card3.btn": "<span>💬</span> Book large dog",
 
       "pricing.note":
         "* Extra heavy matting, special skin treatments or extremely nervous pups may have an additional cost, always explained before the service.",
@@ -1274,7 +1560,7 @@
       "booking.form.details.label": "Tell Sara a bit about your pup",
       "booking.form.details.placeholder":
         "e.g. Nervous with the dryer, has allergies, etc.",
-      "booking.form.btn": "Send booking request",
+      "booking.form.btn": "Send booking request (demo)",
       "booking.note":
         "For now this form is just a demo; later we can connect it to WhatsApp, email or a small app to manage appointments together.",
 
@@ -1293,6 +1579,9 @@
         "© <span id=\"year\"></span> Sara's Paws & Shine · Mobile Grooming Maryland. All rights reserved.",
       "footer.right":
         "Made with lots of love for your business, Sara. 🧡",
+
+      "float.whatsapp": "WhatsApp",
+      "mobile.whatsapp": "<span>💬</span> Book on WhatsApp",
 
       "alert.msg":
         "Thank you, {name}! Your booking request for {dog} has been sent (demo).\n\nThis is just a preview of how your booking system could work. 💕"
@@ -1356,6 +1645,16 @@
     if (el) {
       el.scrollIntoView({ behavior: "smooth" });
     }
+  }
+
+  // Abrir WhatsApp con mensaje según idioma
+  function openWhatsApp() {
+    const base = "https://wa.me/16673803162";
+    const textEs = "Hola Sara 🐶✨, quiero agendar una cita de grooming para mi perrito.";
+    const textEn = "Hi Sara 🐶✨, I’d like to book a grooming appointment for my dog.";
+    const text = currentLang === "es" ? textEs : textEn;
+    const url = base + "?text=" + encodeURIComponent(text);
+    window.open(url, "_blank");
   }
 
   // Manejo básico del formulario (demo)
